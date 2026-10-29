@@ -1,0 +1,8 @@
+[package]
+name = "rl"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+sim = { workspace = true }
+burn = { workspace = true }

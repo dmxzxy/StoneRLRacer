@@ -1,0 +1,13 @@
+# 构建产物
+/target
+/dist
+*.apk
+Cargo.lock.bak
+
+# 训练存档与截图（本地数据）
+checkpoints/
+screenshot*.png
+
+# 签名文件
+*.keystore
+*.jks

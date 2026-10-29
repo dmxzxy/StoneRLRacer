@@ -1,0 +1,25 @@
+[package]
+name = "rl-racer-game"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+name = "rl_racer_game"
+path = "src/lib.rs"
+crate-type = ["lib", "cdylib"]
+
+[[bin]]
+name = "rl-racer-game"
+path = "src/main.rs"
+
+[dependencies]
+bevy = { version = "0.20", features = ["png", "android-game-activity"] }
+sim = { workspace = true }
+rl = { workspace = true }
+burn = { workspace = true }
+
+# 安卓：Vulkan 后端 + 无 MSAA（平板 Mali GPU 优化，参照弹珠项目实测）
+[target.'cfg(target_os = "android")'.dependencies]
+
+[profile.release]
+opt-level = 3

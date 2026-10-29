@@ -1,0 +1,47 @@
+[package]
+name = "rl-racer-app"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+name = "rl_racer_app"
+path = "src/lib.rs"
+# cdylib 供安卓打包（cargo-apk）；桌面额外产出一个无害的 dll
+crate-type = ["lib", "cdylib"]
+
+[[bin]]
+name = "rl-racer"
+path = "src/main.rs"
+
+[dependencies]
+sim = { workspace = true }
+rl = { workspace = true }
+burn = { workspace = true }
+eframe = { workspace = true }
+egui = { workspace = true }
+egui_plot = { workspace = true }
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+eframe = { workspace = true, features = ["accesskit", "clipboard", "system_fonts"] }
+
+[target.'cfg(target_os = "android")'.dependencies]
+eframe = { workspace = true, features = ["android-native-activity"] }
+egui-winit = "0.37"
+
+# cargo-apk 打包配置（安卓构建在 Mac 上进行，keystore 不入库）
+[package.metadata.android]
+package = "com.rex.rlracer"
+
+[package.metadata.android.sdk]
+min_sdk_version = 26
+target_sdk_version = 34
+
+[package.metadata.android.signing.release]
+path = "rl-racer.keystore"
+keystore_password = "rlracer123"
+
+[package.metadata.android.application]
+label = "RL Racer"
+
+[package.metadata.android.application.activity]
+orientation = "landscape"

@@ -1,0 +1,6 @@
+[2m2026-10-28T10:55:49.263163Z[0m [32m INFO[0m [2mbevy_diagnostic::system_information_diagnostics_plugin::internal[0m[2m:[0m SystemInfo { os: "Windows 10 Pro", kernel: "19045", cpu: "Intel(R) Core(TM) i7-10700KF CPU @ 3.80GHz", core_count: "8", memory: "63.9 GiB" }
+[2m2026-10-28T10:55:49.635280Z[0m [32m INFO[0m [2mbevy_render::renderer[0m[2m:[0m AdapterInfo { name: "NVIDIA GeForce RTX 3060", vendor: 4318, device: 9476, device_type: DiscreteGpu, device_pci_bus_id: "0000:01:00.0", driver: "NVIDIA", driver_info: "560.94", backend: Vulkan, subgroup_min_size: 32, subgroup_max_size: 32, transient_saves_memory: Some(false), limit_bucket: None }
+[2m2026-10-28T10:55:49.926085Z[0m [32m INFO[0m [2mrl_racer_game::model[0m[2m:[0m [model] 扫描到 1 个模型
+[2m2026-10-28T10:55:49.937731Z[0m [32m INFO[0m [2mbevy_pbr::cluster[0m[2m:[0m GPU clustering is supported on this device.
+[2m2026-10-28T10:55:49.937770Z[0m [32m INFO[0m [2mbevy_render::batching::gpu_preprocessing[0m[2m:[0m GPU preprocessing is fully supported on this device.
+[2m2026-10-28T10:55:49.938296Z[0m [32m INFO[0m [2mbevy_winit::system[0m[2m:[0m Creating new window RL Racer — 游玩端 (67v0)

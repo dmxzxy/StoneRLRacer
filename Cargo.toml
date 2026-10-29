@@ -1,0 +1,23 @@
+[workspace]
+resolver = "2"
+members = ["crates/sim", "crates/rl", "crates/app", "crates/game"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+
+[workspace.dependencies]
+sim = { path = "crates/sim" }
+rl = { path = "crates/rl" }
+# burn 0.22: 无泛型 Module、Device::flex()、device.autodiff()
+# 注：不用 `cpu` feature——其 CubeCL 后端的 matmul 自动调优在本机
+# 触发 "Shared memory budget exceeded"（L1d 32KB < kernel 需求 64KB），
+# flex 是官方推荐的纯 Rust CPU 后端。
+burn = { version = "0.22.1", default-features = false, features = ["std", "optim", "autodiff", "flex"] }
+eframe = { version = "0.37", default-features = false, features = ["default_fonts", "wgpu", "links"] }
+egui = "0.37"
+egui_plot = "0.38"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
